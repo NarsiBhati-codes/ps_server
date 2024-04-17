@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-const  JWT_SECRET  = "";
+const  JWT_SECRET  = "Anony6545@";
 
 const authentication = (req, res, next) => {
     // Get the token from the request headers or query parameters

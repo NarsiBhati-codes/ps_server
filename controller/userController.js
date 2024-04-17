@@ -1,6 +1,6 @@
 import {User} from '../mongodb/mongo.js'; // Assuming you have a User model defined
 import jwt from 'jsonwebtoken';
-const JWT_SECRET  = "";
+const  JWT_SECRET  =  "Anony6545@";
 
 // Controller for user signup
 export const signup = async (req, res) => {

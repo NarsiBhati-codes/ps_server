@@ -1,7 +1,5 @@
 import mongoose from "mongoose";
-import bcrypt from 'bcrypt';
-
-mongoose.connect('');
+ mongoose.connect('mongodb+srv://beanonymous6545:iFeIvvytcT2LR3Js@cluster0.adinovb.mongodb.net/psstudio');
 
 const UserSchema =  new mongoose.Schema({
     name: { type: String, required: true },
@@ -12,14 +10,19 @@ const UserSchema =  new mongoose.Schema({
     skills: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Skill' }],
 });
 
-UserSchema.methods.comparePassword = async function(candidatePassword) {
-  try {
-      // Use bcrypt to compare the candidate password with the stored hashed password
-      return await bcrypt.compare(candidatePassword, this.password);
-  } catch (error) {
-      throw new Error(error);
-  }
+UserSchema.methods.comparePassword = function(candidatePassword) {
+  // Assume this.password is the hashed password stored in the database
+
+  return new Promise((resolve, reject) => {
+      // Compare the candidate password with the stored hashed password
+      if (candidatePassword === this.password) {
+          resolve(true); // Passwords match
+      } else {
+          resolve(false); // Passwords do not match
+      }
+  });
 };
+
 
 const SkillSchema = new  mongoose.Schema({
     title: {
