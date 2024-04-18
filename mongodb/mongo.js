@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
- mongoose.connect('mongodb+srv://beanonymous6545:iFeIvvytcT2LR3Js@cluster0.adinovb.mongodb.net/psstudio');
+ mongoose.connect('');
 
 const UserSchema =  new mongoose.Schema({
     name: { type: String, required: true },
